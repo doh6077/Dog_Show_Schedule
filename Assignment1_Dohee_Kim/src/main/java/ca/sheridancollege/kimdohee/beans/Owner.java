@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,5 +22,6 @@ public class Owner {
 	private Long id;
 	private String firstName;
 	private String lastName; 
-	private List<Dog> dogs;
+	@OneToMany(mappedBy ="owners")
+	private List<Dog> dogs; 
 }
