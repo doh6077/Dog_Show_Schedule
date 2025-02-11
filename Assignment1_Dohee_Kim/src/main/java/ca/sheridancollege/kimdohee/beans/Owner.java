@@ -22,6 +22,6 @@ public class Owner {
 	private Long id;
 	private String firstName;
 	private String lastName; 
-	@OneToMany(mappedBy ="owners")
+	@OneToMany(mappedBy ="owner")
 	private List<Dog> dogs; 
 }
