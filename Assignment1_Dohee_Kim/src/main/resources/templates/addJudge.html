@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Add Judge</h1>
+	<form th:action="@{/addJudge}" method="post" th:object=${judge}>
+		Name: <input type="text" th:field="*{name}" ><br>
+		<br> 
+		<input type="submit" value ="Add Judge">
+		
+	</form>
+		<br>
+	<a th:href="@{/}">Home</a> 
+</body>
+</html>
