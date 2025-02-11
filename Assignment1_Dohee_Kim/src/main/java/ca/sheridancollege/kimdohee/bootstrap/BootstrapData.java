@@ -24,27 +24,19 @@ public class BootstrapData implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		Dog d = Dog.builder().name("dog1" ).build();
-		dogRepo.save(d);
-		Dog d1 = Dog.builder().name("dog2" ).build();
-		dogRepo.save(d1);
-		Judge j = Judge.builder().name("judge1" ).build();
-		judRepo.save(j);
-		Judge j1 = Judge.builder().name("judge2" ).build();
-		judRepo.save(j1);
-		Owner own = Owner.builder().firstName("owner1").lastName("meow").build(); 
-		ownRepo.save(own);
-		d.setOwner(own);
-		d1.setOwner(own);
-		List<Judge> judges = new ArrayList<>();  // Initialize the list
-		judges.add(j); 
-		judges.add(j1);
-		d.setJudges(judges);
-		dogRepo.save(d);
-		dogRepo.save(d1);
-		judRepo.save(j);
-		judRepo.save(j1);		
-		ownRepo.save(own);
+		for (int i = 1; i < 31; i ++) {
+			Dog dog = Dog.builder().name("dog" + i ).build();
+			dogRepo.save(dog);
+		}
+		for (int i = 1; i < 4; i ++) {
+			Judge j = Judge.builder().name("judge" + i).build();
+			judRepo.save(j);
+		}
+		for (int i = 1; i < 7; i ++) {
+			Owner own = Owner.builder().firstName("owner" + i).lastName("last" + i).build(); 
+			ownRepo.save(own);
+		}
+
 
 		
 	}
