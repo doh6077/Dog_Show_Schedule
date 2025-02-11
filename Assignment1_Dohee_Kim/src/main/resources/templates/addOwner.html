@@ -2,17 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Dog Show Schedules</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 <body>
-	<h1>Add Owner</h1>
+	<div class="head"><h1>Add Owner</h1></div><br><br>
 	<form th:action="@{/addOwner}" method="post" th:object=${owner}>
-		First Name: <input type="text" th:field="*{firstName}" ><br>
-		Last Name: <input type="text" th:field="*{lastName}" ><br>
+		First Name: <input type="text" th:field="*{firstName}" ><br><br>
+		Last Name: <input type="text" th:field="*{lastName}" ><br><br>
 		<br> 		<br> 
 		<input type="submit" value ="Add Owner">
+		<br>
+	<br>
 	</form>
 		<br>
+		
 	<a th:href="@{/}">Home</a> 
 </body>
 </html>

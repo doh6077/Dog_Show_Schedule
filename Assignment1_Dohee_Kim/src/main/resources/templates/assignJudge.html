@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Dog Show Schedules</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div class="head"><h1>Assign Judge to Dog</h1></div>
+
+    <form action="/assignJudge" method="post">
+        <label for="dog">Select Dog:</label>
+        <select name="dog" id="dog">
+            <th:block th:each="dog : ${dogs}">
+                <option th:value="${dog.id}" th:text="${dog.name}"></option>
+            </th:block>
+        </select>
+        <br><br><br>
+
+        <label for="judge">Select judge:</label>
+        <select name="judge" id="judge">
+            <th:block th:each="judge : ${judges}">
+                <option th:value="${judge.id}" th:text="${judge.name}"></option>
+            </th:block>
+        </select>
+        <br><br>
+
+        <button type="submit">Assign judge</button>
+    </form>
+		<br>
+	<a th:href="@{/}">Home</a> 
+</body>
+</html>
+

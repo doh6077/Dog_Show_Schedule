@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Dog Show Schedules</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	
+	<div class="head"><h1>Owners</h1></div><br><br>
+	<table border="1">
+	    <tr>
+	        <th>ID</th>
+	        <th>First Name</th>
+	        <th>Last Name</th>
+	    </tr>
+	    <tr th:each ="owner: ${dog.owner}" >
+	        <td th:text="${owner.id}"></td>
+	        <td th:text="${owner.FirstName}"></td>
+	        <td th:text="${owner.lastName}"></td>
+	        
+	    </tr>
+	</table>
+	<br><br>
+	<div class="head"><h1>Judges</h1></div><br><br>
+	<table border="1">
+	    <tr>
+	        <th>ID</th>
+	        <th>Name</th>
+	        <th>Control</th>
+	    </tr>
+	    <tr th:each="j : ${dog.judges}">
+	        <td th:text="${j.id}"></td>
+	        <td th:text="${j.name}"></td>
+	        <td>
+	        
+				<a th:href="@{/deleteJudge/{dogId}/{id}(dogId=${dog.id}, id=${j.id})}">
+				    <button>Delete</button>
+				</a>
+
+	        </td>
+	    </tr>
+	</table>
+	<br><br><br>
+	<a th:href="@{/}">Home</a> 
+</body>
+</html>

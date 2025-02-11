@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Dog Show Schedules</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div class="head"><h1>Dogs</h1></div><br><br>
+	<table border="1">
+	    <tr>
+	        <th>ID</th>
+	        <th>Name</th>
+	        <th>Owner</th>
+	    </tr>
+	    <tr th:each ="dog: ${dogs}">
+	        <td th:text="${dog.id}"></td>
+	        <td th:text="${dog.name}"></td>
+			<td th:text="${dog.owner.firstName}"></td>
+	    </tr>
+	</table>
+		<br><br><br>
+	<a th:href="@{/}">Home</a> 
+</body>
+</html>

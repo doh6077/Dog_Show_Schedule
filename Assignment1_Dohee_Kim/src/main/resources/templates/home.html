@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Dog Show Schedules</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<div class="head"><h1>Dog Show Schedules </h1></div>
+	<br><br><br>
+	<a th:href="@{/addDog}">Add Dog</a> 
+	<br>
+	<a th:href="@{/addJudge}">Add Judge</a> 
+	<br>
+	<a th:href="@{/addOwner}">Add Owner</a> 
+	<br>
+	<a th:href="@{/view}">View</a> 
+	<br>
+	<a th:href="@{assignOwner}">Assign owner to dog</a> 
+	<br>
+	<a th:href="@{assignJudge}">Assign judge to dog</a> 
+</body>
+</html>

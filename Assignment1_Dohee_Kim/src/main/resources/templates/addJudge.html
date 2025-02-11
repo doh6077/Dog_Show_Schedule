@@ -2,15 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Dog Show Schedules</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 <body>
-	<h1>Add Judge</h1>
+	<div class="head"><h1>Add Judge</h1></div><br><br>
 	<form th:action="@{/addJudge}" method="post" th:object=${judge}>
 		Name: <input type="text" th:field="*{name}" ><br>
 		<br> 
-		<input type="submit" value ="Add Judge">
-		
+		<input type="submit" value ="Add Judge">	
 	</form>
 		<br>
 	<a th:href="@{/}">Home</a> 

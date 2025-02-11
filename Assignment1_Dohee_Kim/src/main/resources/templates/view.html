@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Dog Show Schedules</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div class="head"><h1>Dogs</h1></div><br><br>
+	<br><br>
+	<table border="1">
+	    <tr>
+	        <th>ID</th>
+	        <th>Name</th>
+	        <th>Detail</th>
+	    </tr>
+	    <tr th:each="d : ${dogs}">
+	        <td th:text="${d.id}"></td>
+	        <td th:text="${d.name}"></td>
+	        <td>
+	            <a th:href="@{/viewDog/{id}(id=${d.id})}">Detail</a> 
+	        </td>
+	    </tr>
+	</table>
+	<br><br>
+	<div class="head"><h1>Owners</h1></div><br><br>
+	<table border="1">
+	    <tr>
+	        <th>ID</th>
+	        <th>First Name</th>
+	        <th>Last Name</th>
+	        <th>Detail</th>
+	    </tr>
+	    <tr th:each="o : ${owners}">
+	        <td th:text="${o.id}"></td>
+	        <td th:text="${o.firstName}"></td>
+	        <td th:text="${o.lastName}"></td>
+	        <td>
+				 <a th:href="@{/viewOwner/{id}(id=${o.id})}">Detail</a> 
+	        </td>
+	    </tr>
+	</table>
+	<br><br>
+	<div class="head"><h1>Judges</h1></div><br><br>
+	<table border="1">
+	    <tr>
+	        <th>ID</th>
+	        <th>Name</th>
+	        <th>Detail</th>
+
+	    </tr>
+	    <tr th:each="j : ${judges}">
+	        <td th:text="${j.id}"></td>
+	        <td th:text="${j.name}"></td>
+	        <td>
+				 <a th:href="@{/viewJudge/{id}(id=${j.id})}">Detail</a> 
+	        </td>
+	    </tr>
+	</table>
+
+	
+	<br>
+	<a th:href="@{/}">Home</a> 
+</body>
+</html>
