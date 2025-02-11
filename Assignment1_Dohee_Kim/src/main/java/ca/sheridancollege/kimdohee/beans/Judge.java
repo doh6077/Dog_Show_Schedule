@@ -21,8 +21,7 @@ public class Judge {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	private String firstName;
-	private String lastName; 
+	private String name;
 	@ManyToMany(mappedBy="judges")
 	private List<Dog> dogs; 
 }
