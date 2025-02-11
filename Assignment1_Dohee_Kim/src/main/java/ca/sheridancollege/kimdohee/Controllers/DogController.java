@@ -1,5 +1,7 @@
 package ca.sheridancollege.kimdohee.Controllers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.PageRequest;
@@ -93,11 +95,32 @@ public class DogController {
 		
 
 	}
-
+	
+	@GetMapping("/deleteJudge/{dogId}/{id}")
+	public String deleteJudge(@PathVariable long dogId, @PathVariable long id) {
+		// I have get the id of judge and 
+		// get the judge list from dog repository 
+		// find this judge from the list 
+		// and remove it 
+		// and then set updated judge list to dog 
+		// and then save the dog 
+		Optional<Dog> dogSelected = dogRepo.findById(dogId);
+		Optional<Judge> judgeSelected = judRepo.findById(id);
+	    if (judgeSelected.isPresent() && dogSelected.isPresent()) {
+	        Judge selectedJudge = judgeSelected.get();
+	        Dog selectedDog = dogSelected.get(); 
+	        
+	        selectedDog.getJudges().removeIf(judge -> judge.getId() == id);
+	        dogRepo.save(selectedDog);	
+	        }
+	        
+	        
+	    return "redirect:/view";
+	}
 	@GetMapping("/viewOwner/{id}")
 	public String ownerPage(@PathVariable long id, Model model) {
 		Optional<Owner> owner = ownRepo.findById(id);
-		if (owner.isPresent()) {// The game exists
+		if (owner.isPresent()) {
 			Owner selectedOwner = owner.get(); 
 			model.addAttribute("owner", selectedOwner);
 			return "viewOwner.html"; 			
@@ -112,17 +135,64 @@ public class DogController {
 	public String judgePage(@PathVariable long id, Model model) {
 		Optional<Judge> judge = judRepo.findById(id);
 		if (judge.isPresent()) {// The game exists
-			Judge selectedJud = judge.get(); 
-			model.addAttribute("judge", selectedJud);
+			Judge selectedJudge = judge.get(); 
+			List<Dog> dogs = selectedJudge.getDogs();
+			model.addAttribute("dogs", dogs);
+			model.addAttribute("judge", selectedJudge);
 			return "viewJudge.html"; 			
 		} else {
 			
 			return "redirect:/view";
 		}
 	}
-	@DeleteMapping("/deleteJudge/{id}")
-	public String deleteJudge(@PathVariable long id, Model model) {
-	    judRepo.deleteById(id);
-	    return "redirect:/view";
+
+	@GetMapping("/assignJudge")
+	public String loadAssignJudge(Model model) {
+		List<Judge> judges = judRepo.findAll();
+		model.addAttribute("judges", judges); // pass the Owner to the view 
+		List<Dog> dogs = dogRepo.findAll();
+		model.addAttribute("dogs", dogs);		
+		return "assignJudge.html"; 
+		
 	}
+
+
+	@PostMapping("/assignJudge")
+	public String processAssignJudge(@RequestParam("dog") Long dogId, @RequestParam("judge") Long judgeId) {
+		Optional<Judge> guestSelected = judRepo.findById(judgeId);
+		Judge judge = guestSelected.get();
+		List<Judge> judges = new ArrayList<>();  
+		judges.add(judge);
+		Optional<Dog> dogSelected = dogRepo.findById(dogId);
+		Dog dog = dogSelected.get();
+		dog.setJudges(judges);
+		dogRepo.save(dog);
+		return "redirect:/assignJudge";
+		
+	}	
+
+	@GetMapping("/assignOwner")
+	public String loadAssignOwner(Model model) {
+		List<Owner> owners = ownRepo.findAll();
+		model.addAttribute("owners", owners); // pass the Owner to the view 
+		List<Dog> dogs = dogRepo.findAll();
+		model.addAttribute("dogs", dogs);		
+		return "assignOwner.html"; 
+		
+	}
+
+
+	@PostMapping("/assignOwner")
+	public String processAssignOwner(@RequestParam("dog") Long dogId, @RequestParam("owner") Long ownerId) {
+		Optional<Owner> ownerSelected = ownRepo.findById(ownerId);
+		Owner owner = ownerSelected.get();
+		Optional<Dog> dogSelected = dogRepo.findById(dogId);
+		Dog dog = dogSelected.get();
+		dog.setOwner(owner);
+		dogRepo.save(dog);
+		//ownRepo.save(owner);
+		return "redirect:/assignOwner";
+		
+	}	
+	
 }
