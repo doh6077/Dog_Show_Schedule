@@ -27,11 +27,10 @@ public class Dog {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	private String firstName;
-	private String lastName; 
+	private String name;
     // Many dogs can be assigned to One Owner
     @ManyToOne
-    @JoinColumn(name = "owner_id") // JoinColumn으로 수정
+    @JoinColumn(name = "owner_id") // JoinColumn
     private Owner owner;
 
     // Many dogs can be assigned to Many Judges
