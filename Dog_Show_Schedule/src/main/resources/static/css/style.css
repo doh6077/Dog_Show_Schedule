@@ -1,6 +1,17 @@
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 
+*{
+  font-family: Lato;
+}
+/* Add colors as variables  */
+:root {
+  --primary-color: #2C2C2C;
+  --accent: #F4F4F4;
+  --highlight: #C5A880;
+  --accent-light: #8CAFC1;
+}
+
 body {
 	font-family: Lato;
 	text-align: center;
