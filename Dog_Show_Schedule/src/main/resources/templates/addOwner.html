@@ -2,10 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Dog Show Schedules</title>
+<title>PawPanel</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 <body>
+	<div th:replace="~{fragments/navbar :: navigation}"></div>
 	<div class="head"><h1>Add Owner</h1></div><br><br>
 	<form th:action="@{/addOwner}" method="post" th:object=${owner}>
 		First Name: <input type="text" th:field="*{firstName}" ><br><br>
@@ -16,7 +18,5 @@
 	<br>
 	</form>
 		<br>
-		
-	<a th:href="@{/}">Home</a> 
 </body>
 </html>
