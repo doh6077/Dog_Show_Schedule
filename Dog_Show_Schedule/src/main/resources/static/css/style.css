@@ -18,6 +18,7 @@ body {
 }
 
 a {
+  color: #F4F4F4;
   font-family: Lato;
   font-size: 17pt;
   font-weight: 400;
@@ -51,6 +52,7 @@ a:after {
 }
 
 a:hover:before, .SMN_effect-2 a:hover:after, .SMN_effect-2 a:focus:before, .SMN_effect-2 a:focus:after {
+  color: #F4F4F4;
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   transform: scale(1);
