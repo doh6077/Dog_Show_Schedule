@@ -18,6 +18,19 @@ Welcome to the **Dog Show Management System**! This project is designed to help 
 
 ![Home Page2](Output/2.png)
 ![Home Page3](Output/3.png)
+
+
+
+![PawPanel1](https://github.com/user-attachments/assets/100d939a-cb3a-40ef-8827-484e9fa6da1a)
+
+---
+![PawPanel2](https://github.com/user-attachments/assets/5eb67fe8-61cc-41bb-926b-3e3493d6f656)
+
+---
+
+
+
+
 ## How to Run
 
 1. Clone the repository:
