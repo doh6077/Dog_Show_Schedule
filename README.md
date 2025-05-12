@@ -14,6 +14,10 @@ Welcome to the **Dog Show Management System**! This project is designed to help 
 ### Home Page
 ![Home Page](src/main/resources/static/images/PawPanel.png)
 
+![Home Page1](Output/1.png)
+
+![Home Page2](Output/2.png)
+![Home Page3](Output/3.png)
 ## How to Run
 
 1. Clone the repository:
