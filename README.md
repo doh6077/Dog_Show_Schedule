@@ -1,6 +1,6 @@
-# Dog Show Management System
+# PawPanel
 
-Welcome to the **Dog Show Management System**! This project is designed to help manage dog shows efficiently by providing features for registering dogs, assigning judges, managing owners, and more.
+Welcome to the **PawPanel**! This project is designed to help manage dog shows efficiently by providing features for registering dogs, assigning judges, managing owners, and more.
 
 ## Features
 
@@ -39,7 +39,7 @@ Welcome to the **Dog Show Management System**! This project is designed to help 
    ```
 2. Navigate to the project directory:
    ```bash
-   cd Dog_Show_Schedule
+   cd PawPanel
    ```
 3. Run the application using Maven:
    ```bash
