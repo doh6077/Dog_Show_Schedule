@@ -161,7 +161,8 @@ public class DogController {
 	public String processAssignJudge(@RequestParam("dog") Long dogId, @RequestParam("judge") Long judgeId) {
 		Optional<Judge> guestSelected = judRepo.findById(judgeId);
 		Judge judge = guestSelected.get();
-		List<Judge> judges = new ArrayList<>();  
+		//List<Judge> judges = new ArrayList<>();  
+		List<Judge> judges = dogRepo.findById(dogId).get().getJudges(); 
 		judges.add(judge);
 		Optional<Dog> dogSelected = dogRepo.findById(dogId);
 		Dog dog = dogSelected.get();
