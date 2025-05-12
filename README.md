@@ -14,15 +14,6 @@ Welcome to the **Dog Show Management System**! This project is designed to help 
 ### Home Page
 ![Home Page](src/main/resources/static/images/PawPanel.png)
 
-### Dog Registration
-![Dog Registration](src/main/resources/static/images/dog.png)
-
-### Owner Management
-![Owner Management](src/main/resources/static/images/owner.png)
-
-### Judge Assignment
-![Judge Assignment](src/main/resources/static/images/judge.png)
-
 ## How to Run
 
 1. Clone the repository:

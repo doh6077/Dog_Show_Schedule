@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div th:replace="~{fragments/navbar :: navigation}"></div>
-	<div class="head"><h1>Add Owner</h1></div><br><br>
+	<div class="head pt-5 mt-5"><h1>Add Owner</h1></div><br><br>
 	<form th:action="@{/addOwner}" method="post" th:object=${owner}>
 		First Name: <input type="text" th:field="*{firstName}" ><br><br>
 		Last Name: <input type="text" th:field="*{lastName}" ><br><br>

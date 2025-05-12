@@ -9,7 +9,7 @@
 <body>
 	<div th:replace="~{fragments/navbar :: navigation}"></div>
 	
-	<div class="head"><h1>Add Dog</h1></div><br><br>
+	<div class="head pt-5 mt-5"><h1>Add Dog</h1></div><br><br>
 	<form th:action="@{/addDog}" method="post" th:object=${dog}>
 		Name: <input type="text" th:field="*{name}" ><br>
 		<br> 
